@@ -5,6 +5,7 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -224,6 +225,8 @@ class ScanBarcodeFromCameraFragment : Fragment(), ConfirmBarcodeDialogFragment.L
     }
 
     private fun handleScannedBarcode(result: Result) {
+        Log.d("QRSCAN", result.toString())
+
         if (requireActivity().intent?.action == ZXING_SCAN_INTENT_ACTION) {
             vibrateIfNeeded()
             finishWithResult(result)
